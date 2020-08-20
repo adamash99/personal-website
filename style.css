@@ -128,3 +128,8 @@ h2 {
 h3 {
     text-align: center
 }
+
+#section-marker {
+    font-weight:bold ;
+    margin: 25px
+}

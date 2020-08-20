@@ -133,3 +133,7 @@ h3 {
     font-weight:bold ;
     margin: 25px
 }
+table {
+    border: "1" ;
+    /* border-collapse: collapse; */
+}

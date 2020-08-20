@@ -68,7 +68,7 @@ h1 {
     flex-direction: column;
     text-align: center;
     font-family: avenir-light;}
-    h2 {
+    #social h2 {
         margin: 7px;
         font-weight: lighter;
         font-size: 25px;
@@ -95,4 +95,33 @@ h1 {
 #content {
     font-family: avenir-light;
     margin: 90px
+}
+
+#posts-container {
+    display:flex;
+    flex-direction: column;
+    font-family: avenir-light;
+    padding: 20px;
+    flex-grow: 1;
+}
+
+#post-title {
+    font-size: 25px;
+    color: black;
+}
+#post-subtitle {
+    font-size: 15px;
+}
+
+h2 {
+    font-size: 20px;
+    text-align: center;
+
+}
+#article {
+    font-family: avenir-light;
+}
+
+#blog-paragraph {
+    margin: 25px;
 }

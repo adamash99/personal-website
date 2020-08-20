@@ -12,6 +12,7 @@
             <div><a href="./resume.pdf">Resume</a></div>
         </div>
         <div id="article">
+            <div id="article-wrapper">
             <h1 >Katch and Shoot: The Greatest Basketball Team Never Assembled </h1>
             <h2>Would the Kardashian-Jenner sisters (or rather, their exes) contend in the modern NBA?</h2>
             <h3>August 19, 2020</h3>
@@ -74,10 +75,11 @@
                 of minutes per team played in a non-overtime NBA game. Each player is projected to 
                 play only about 30 seconds more per game on the exes team than with their real life teams, 
                 so this change shouldn't impact the RAPTOR ratings. Then, assuming our team plays at 
-                an average pace of 101 possessions per game, I calculated each players projected 
+                the 2019-2020 league average pace of 101 possessions per game, I calculated each players projected 
                 net contribution per game on offense, on defense, and overall. You can see the 
                 results in the table below.
-                <table border="1" class="dataframe">\n  <thead>\n    <tr style="text-align: right;">\n      <th></th>\n      <th>players</th>\n      <th>reg season raptor</th>\n      <th>reg season off raptor</th>\n      <th>reg season def raptor</th>\n      <th>2020 MPG</th>\n      <th>projected MPG</th>\n      <th>projected posessions per game</th>\n      <th>net per game</th>\n      <th>net per game offense</th>\n      <th>net per game defense</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>Blake Griffin</td>\n      <td>-3.4</td>\n      <td>-0.9</td>\n      <td>-2.4</td>\n      <td>28.4</td>\n      <td>29.053708</td>\n      <td>61.133845</td>\n      <td>-1.662841</td>\n      <td>-0.440164</td>\n      <td>-1.173770</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>Ben Simmons</td>\n      <td>2.4</td>\n      <td>-0.1</td>\n      <td>2.5</td>\n      <td>35.4</td>\n      <td>36.214834</td>\n      <td>76.202046</td>\n      <td>1.463079</td>\n      <td>-0.060962</td>\n      <td>1.524041</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>Devin Booker</td>\n      <td>1.9</td>\n      <td>4.8</td>\n      <td>-2.9</td>\n      <td>35.9</td>\n      <td>36.726343</td>\n      <td>77.278346</td>\n      <td>1.174631</td>\n      <td>2.967488</td>\n      <td>-1.792858</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>Jordan Clarkson</td>\n      <td>1.1</td>\n      <td>2.8</td>\n      <td>-1.7</td>\n      <td>24.7</td>\n      <td>25.268542</td>\n      <td>53.169224</td>\n      <td>0.467889</td>\n      <td>1.190991</td>\n      <td>-0.723101</td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>Chandler Parsons</td>\n      <td>-11.5</td>\n      <td>-7.1</td>\n      <td>-4.4</td>\n      <td>10.8</td>\n      <td>11.048593</td>\n      <td>23.248082</td>\n      <td>-2.138824</td>\n      <td>-1.320491</td>\n      <td>-0.818332</td>\n    </tr>\n    <tr>\n      <th>5</th>\n      <td>DAngelo Russell</td>\n      <td>-0.7</td>\n      <td>3.0</td>\n      <td>-3.7</td>\n      <td>32.7</td>\n      <td>33.452685</td>\n      <td>70.390026</td>\n      <td>-0.394184</td>\n      <td>1.689361</td>\n      <td>-2.083545</td>\n    </tr>\n    <tr>\n      <th>6</th>\n      <td>Tristan Thompson</td>\n      <td>-1.3</td>\n      <td>-2.3</td>\n      <td>1.0</td>\n      <td>30.2</td>\n      <td>30.895141</td>\n      <td>65.008525</td>\n      <td>-0.676089</td>\n      <td>-1.196157</td>\n      <td>0.520068</td>\n    </tr>\n    <tr>\n      <th>7</th>\n      <td>James Harden</td>\n      <td>10.5</td>\n      <td>8.8</td>\n      <td>1.7</td>\n      <td>36.5</td>\n      <td>37.340153</td>\n      <td>78.569906</td>\n      <td>6.599872</td>\n      <td>5.531321</td>\n      <td>1.068551</td>\n    </tr>\n  </tbody>\n</table>
+                <table border="1" id="dataframe">  <thead>    <tr style="text-align: right;">      <th>Players</th>      <th>off. RAPTOR</th>      <th>def. RAPTOR</th>      <th>total RAPTOR</th>      <th>net off.</th>      <th>net def.</th>      <th>total net</th>    </tr>    <tr>      <th></th>      <th></th>      <th></th>      <th></th>      <th></th>      <th></th>    </tr>  </thead>  <tbody>    <tr>      <th>Blake Griffin</th>      <td>-0.9</td>      <td>-2.4</td>      <td>-3.4</td>      <td>-0.44</td>      <td>-1.17</td>      <td>-1.66</td>    </tr>    <tr>      <th>Ben Simmons</th>      <td>-0.1</td>      <td>2.5</td>      <td>2.4</td>      <td>-0.06</td>      <td>1.5</td>      <td>1.46</td>    </tr>    <tr>      <th>Devin Booker</th>      <td>4.8</td>      <td>-2.9</td>      <td>1.9</td>      <td>2.97</td>      <td>-1.79</td>      <td>1.17</td>    </tr>    <tr>      <th>Jordan Clarkson</th>      <td>2.8</td>      <td>-1.7</td>      <td>1.1</td>      <td>1.19</td>      <td>-0.72</td>      <td>0.47</td>    </tr>    <tr>      <th>Chandler Parsons</th>      <td>-7.1</td>      <td>-4.4</td>      <td>-11.5</td>      <td>-1.32</td>      <td>-0.82</td>      <td>-2.14</td>    </tr>    <tr>      <th>DAngelo Russell</th>      <td>3.0</td>      <td>-3.7</td>      <td>-0.7</td>      <td>1.69</td>      <td>-2.08</td>      <td>-0.39</td>    </tr>    <tr>      <th>Tristan Thompson</th>      <td>-2.3</td>      <td>1.0</td>      <td>-1.3</td>      <td>-1.20</td>      <td>0.52</td>      <td>-0.68</td>    </tr>    <tr>      <th>James Harden</th>      <td>8.8</td>      <td>1.7</td>      <td>10.5</td>      <td>5.53</td>      <td>1.07</td>      <td>6.60</td>    </tr>  </tbody></table>
+                
             </p>
             <p id="blog-paragraph">
                 Next, I took the average of each of our players RAPTOR ratings, weighted by playing
@@ -109,7 +111,7 @@
                 would probably take an all star caliber forward replacing Parsons to push this team over the top. 
                 Depending on how Kendall Jenner's offseason plays out, we could see a new favorite for the 2020-2021 season.
             </p>
-
+        </div>
         </div>
 
         <div id="footer">

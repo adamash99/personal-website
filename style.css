@@ -131,6 +131,10 @@ h3 {
     text-align: center
 }
 
+#blog-post {
+    margin: 15px;
+}
+
 #section-marker {
     font-weight:bold ;
     margin: 25px

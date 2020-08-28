@@ -161,3 +161,12 @@ h3 {
   table tr td:last-child {
     border-right: 0;
   }
+
+.math {
+    font-family:georgia;
+    font-weight: bold;
+}
+
+#picture {
+    max-width: 300px;
+}

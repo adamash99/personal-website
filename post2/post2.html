@@ -29,7 +29,7 @@
                 <p id="blog-paragraph">
                     Depending a little on how hungry I am and a lot on how long its been since my 
                     last Trader Joe's trip, I  put different fillings in different amounts in my burritos. 
-                    There could be eggs, avocado, turkey bacon, peppers, tomatoes, etc. You know, basic 
+                    There could be eggs, avocado, turkey sausage, peppers, tomatoes, etc. You know, basic 
                     breakfast burrito stuff. Anyway, I noticed that unfortunately, I often overstuffed my 
                     burrito. Despite my best efforts, I wouldn't be able to properly close the tortilla and 
                     sometimes (gasp) the burrito would come apart as I worked my way through it. If this has 
@@ -43,33 +43,92 @@
                     if you are interested. At first, I was curious how  burrito size changes relative to what you put in?
                     What is the optimal size for the burrito? What percentage of tortilla is squashed at bottom when you fold differently? How 
                     does changing your parameters impact this? What should each of these parameters even be in the first place?
-                    What is the optimal combination of parameters? Is it achievable? How would one go about acieving this? Would a different tortilla shape be better?
-                    Does it even matter how you fold?
+                    What is the optimal combination of parameters? Is it achievable? How would one even go about achieving this? Would a different tortilla shape be better?
+                    Does it even matter how you fold? Is anyone even still reading this?
                 </p>
                 <p id="blog-paragraph">
                     Obviously, I had to pare down these questions. While many or all of them would be potentially
                     fascinating (at least to me) to answer, I had to start somewhere. So I settled on one simple goal,
                     and decided to maybe leave the rest for future blog posts. I settled on the question of how to maximize the amount
-                    of food that I could fit into the burrito without it coming apart. I wanted to do this
-                    starting with the folding method shown in the video above. If I find a better method along the 
+                    of food that I could fit into the burrito without it coming apart. I wanted to answer this question beginning with
+                     the folding method shown in the video above. If I find a better method along the 
                     way, fantastic! I'll switch to that. If possible, I also wanted to
                     minimize the amount of bunched up the tortilla at each end of the burrito. It 
-                    turns out that those goals are one and the same. More on that in a bit.
+                    turns out that those goals are intimately connected. More on that in a bit.
                 </p>
                 <p id = "section-marker">First, a few assumptions</p>
                 <p id="blog-paragraph">
                     Before I jump in with the math, I want to clarify a few of my underlying assumptions about
-                    the math behind the burrito. First, we are going to assume that each tortilla is a perfect circle. We are also
+                    the model behind the burrito. First, we are going to assume that each tortilla is a perfect circle. We are also
                     going to assume that once the burrito is folded, it takes the shape of a cylinder. Finally, we
                     assume that the tortilla is 2 dimensional. Since tortillas are pretty thin anyway (although definitely 3D objects)
-                    this won't impact my final results too much.
+                    this won't impact my final results too much. Also, in most burrito rolling tutorials, they arrange the food about two
+                    thirds of the way down on the flat tortilla. In my model, I put the food exactly in the middle, as this
+                    makes calculations a lot easier since the burrito is symmetric. Also, once the burrito is rolled, I determined that the surface area should be the same anyway 
+                    no matter where the food was originally arranged.
+                </p>
+                <p id="section-marker"> The Math</p>
+                <p id="blog-paragraph">
+                    First, some definitions. Let's refer to the radius of the tortilla as <text class="math">R</text> and the radius of 
+                    the cylinder that is the completed burrito as <text class="math">r</text>. Then, since we are trying to maximize the 
+                    volume of the burrito, our objective is to maximize <text class="math">V=&pi; L r^2</text>. This is just the formula for
+                    the volume of a cylinder, and <text class="math">L</text> is the length of the burrito. So, we are looking for the optimal
+                    values of <text class="math">L</text> and <text class="math">r</text>.
+                </p>
+                <p id="blog-paragraph">
+                    Earlier, I mentioned that we would also be trying to minimize the amount of bunched up, wasted tortilla. Any tortilla that
+                    is covering more tortilla instead of covering filling would be in this category. We 
+                    can calculate the amount of wasted tortilla without even knowing how the burrito is folded. All we have to do is subtract the 
+                    final surface area of the burrito from the original surface area of the tortilla. This quantity is equal to <text class="math">&pi;R^2 - 2&pi;rL</text>.
+                    Since the first term is constant, minimzing this quantity is equal to maximizing the quantity <text class="math">&pi;rL</text>, which is pretty similar
+                    to the volume we are maximizing above. So while these two optimization problems are not exactly the same, we are on the right track. For the rest 
+                    of this blog, we are going to work on maximizing the volume, and assume that the optimal tortilla efficiency is not too
+                    far off.
+    
                 </p>
                 <p id = "section-marker">The Steps</p>
                 <p id="blog-paragraph">
-                    First, I 
-                    
-
+                    First, I laid the tortilla flat and arranged the food. Immediately, I came to my first decision.
+                    I needed to fold the sides of the burrito in and over the food. But how much tortilla should I fold over?
+                    This measurement, which I will refer to as <text class="math">q</text> from now on, became my first parameter.
                 </p>
+                <div id="two-pictures">
+                    <img src="images/diagram1.png" id="picture"/>
+                    <img src="images/video-screenshot.png" id="picture"/>
+                </div>
+                <p id="blog-paragraph">
+                    After folding the sides in, the next step is to roll the burrito. I determined that to maximize the thickness of the burrito,
+                    we needed to roll such that points A and B are just touching. This allows us to have the maximum possible burrito
+                    circumferance while still preventing any filling from being able to fall out. I guess the tortilla could still fall apart, but lets assume that you can put it in a toaster
+                    oven or on the stove for a minute to make the enclosing nice and crispy and secure. Anyway, this gives us the constraint that <text class="math">X1+X2 = W</text>
+                    , so using the <a href="https://mathworld.wolfram.com/CircularSegment.html">formula</a>
+                    for the length of a chord, we then are able to obtain the constraint  <text class="math"> w^2=2q(2R-2q)</text>. Check the picture below for where 
+                    all these measurements would be on a flat tortilla.
+                </p>
+                <img src="images/diagram2.png" id="picture"/>
+                <p id="blog-paragraph">
+                    After we have wrapped the burrito, <text class="math">W</text> is its circumference. So the burrito radius <text class="math">r=W/&pi;</text>, which honestly is one of the most beautiful mathematical
+                    results I have ever laid my eyes on. We can plug this into our objective function,
+                    so our objective is now to maximize <text class="math">V=&pi;Lr^2 = (LW^2)/&pi;</text>. Then, since a few paragraphs above we constrained
+                    <text class="math">W</text> in terms of  <text class="math">q</text>, we can express our objective function with 
+                    only one parameter,  which is <text class="math">q</text>!
+                </p>
+                <p id="section-marker">The Solution</p>
+                <p id="blog-paragraph">
+                    To be blatantly honest, I didn't really know how to solve this using math. As of writing this, I am one introductory lecture into 
+                    <a href="https://inst.eecs.berkeley.edu/~ee127/fa20/">a convex optimization class</a>, so maybe check back with me later in the semester. But I wrote a 10ish line python script
+                    that runs through possible values of <text class="math">q</text> for a given tortilla radius  <text class="math">R</text>.
+                    Anyway, for a 10 inch tortilla, the optimal value of  <text class="math">q</text> is 1.65 inches, which gives us 
+                    a  <text class="math">W</text> of 4.7 inches and a maximum burrito volume of 148.14 inches^3! I really hate to toot my own horn, but what an
+                    amazing discovery! We now know
+                    exactly the upper limits on burrito size, a piece of knowledge previously unknown to mankind. Undoubtedly, as mankind evolves into 
+                    a smarter, more educated, and more technologically advanced future, filling burritos optimally will be at the forefront of dining culture.
+                </p>
+                <p id="section-marker">Seriously though, what should we actually do with this information?</p>
+                <p id="blog-paragraph">
+                    Great question. I have absolutely no clue. Check back here later and maybe I'll come up with something.
+                </p>
+
             </div>
         </div>
 
